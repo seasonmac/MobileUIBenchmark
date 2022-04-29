@@ -13,12 +13,12 @@
         android:id="@+id/item_container"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="70dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="fitXY"
             />
@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/rotareImageView"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="70dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="fitXY"
             />
@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="asd"
+            android:text="@string/asd"
             />
 
     </LinearLayout>

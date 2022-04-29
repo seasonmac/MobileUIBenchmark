@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class PerformanceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private Context context;
+    private final Context context;
 
 
 
@@ -39,12 +39,10 @@ public class PerformanceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (TYPE_CONTAINER == viewType){
             View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.item_contaner, parent, false);
-            ViewHolder vh = new ViewHolder(v);
-            return vh;
+            return new ViewHolder(v);
         }else{
             View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.item_other, parent, false);
-            ViewHolder vh = new ViewHolder(v);
-            return vh;
+            return new ViewHolder(v);
         }
     }
 
@@ -95,13 +93,12 @@ public class PerformanceAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     .load(Uri.parse("file:///android_asset/"+getImage(index)))
                     .into(mRotareImageView);
             mRotareImageView.setAnimation(mRotation);
-            mItemText.setText(String.valueOf(index));
+            mItemText.setText(String.valueOf(index) + rnd.nextInt(256) +"文字测试");
             mContentContainer.setBackgroundColor(randomColor());
         }
 
         private int randomColor(){
-            int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-            return  color;
+            return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
         }
 
     }

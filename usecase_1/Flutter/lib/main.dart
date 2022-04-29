@@ -143,14 +143,14 @@ class _CellState extends State<Cell> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,color: widget.item.color,
+      height: 70,color: widget.item.color,
       child: Row(
         children: <Widget>[
           Image.asset(
             getImage(widget.item.index),
-            height: 100.0,
+            height: 70.0,
             width: 100.0,
-            cacheHeight: 100,
+            cacheHeight: 70,
             cacheWidth: 100,
             fit: BoxFit.fill,
           ),
@@ -158,10 +158,10 @@ class _CellState extends State<Cell> with TickerProviderStateMixin {
             turns:  Tween(begin: 0.0, end: 1.0).animate(rotationController),
             child: Image.asset(
               getImage(widget.item.index),
-              height: 100.0,
+              height: 70.0,
               width: 100.0,
               fit: BoxFit.fill,
-              cacheHeight: 100,
+              cacheHeight: 70,
               cacheWidth: 100,
             ),
           ),
