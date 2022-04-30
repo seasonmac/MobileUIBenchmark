@@ -168,7 +168,7 @@ class CustomRow extends Component {
         <AnimatedFastImage
           style={{
             transform: [{rotate: this.state.spin}],
-            height: 100,
+            height: 70,
             width: 100,
           }}
           source={getImage(this.state.index)}
@@ -203,11 +203,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   item_container: {
-    height: 100,
+    height: 70,
     flexDirection: 'row',
   },
   image: {
-    height: 100,
+    height: 70,
     width: 100,
   },
   item: {
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     justifyContent: 'center',
     fontSize: 18,
-    height: 100,
+    height: 70,
   },
 });
 
