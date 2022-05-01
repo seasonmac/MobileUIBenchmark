@@ -7,11 +7,11 @@ import 'package:flutter/scheduler.dart';
 
 Random rand = Random();
 
-randomColor(){
+randomColor() {
   return Color((rand.nextDouble() * 0xFFFFFF).toInt() << 0).withOpacity(1.0);
 }
 
-final  Duration  DURATION_SCROOL = Duration(seconds: 500);
+final Duration DURATION_SCROOL = Duration(seconds: 500);
 
 void main() {
   runApp(MyApp());
@@ -32,13 +32,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Item{
+class Item {
   int index;
   Color color;
-  Item(this.index,this.color);
+
+  Item(this.index, this.color);
 }
 
-class TestPage extends StatelessWidget{
+class TestPage extends StatelessWidget {
 
   TestPage({Key key, this.title}) : super(key: key);
 
@@ -58,13 +59,13 @@ class TestPage extends StatelessWidget{
             cacheExtent: 0.0,
             controller: scrollController,
             key: ValueKey('long_list'),
-            separatorBuilder: (context,int){
+            separatorBuilder: (context, int) {
               return Divider();
             },
             itemCount: data.length,
-            itemBuilder: (context,index){
-              return  Cell(
-                item:data[index]
+            itemBuilder: (context, index) {
+              return Cell(
+                  item: data[index]
               );
             },
           ),
@@ -73,12 +74,12 @@ class TestPage extends StatelessWidget{
             child: SizedBox(
               width: double.infinity,
               child: RaisedButton(
-                onPressed: ()async{
-                    await scrollController.animateTo(
-                          1000.0 * (100 + 16),
-                          duration: DURATION_SCROOL,
-                          curve: Curves.linear
-                    );
+                onPressed: () async {
+                  await scrollController.animateTo(
+                      1000.0 * (100 + 16),
+                      duration: DURATION_SCROOL,
+                      curve: Curves.linear
+                  );
                 },
               ),
             ),
@@ -88,12 +89,12 @@ class TestPage extends StatelessWidget{
     );
   }
 
-  List<Item> genereteData(){
+  List<Item> genereteData() {
     var data = List<Item>();
-     for(int i = 0; i < 1001; i++){
-       data.add(Item(i,randomColor()));
-     }
-     return data;
+    for (int i = 0; i < 1001; i++) {
+      data.add(Item(i, randomColor()));
+    }
+    return data;
   }
 }
 
@@ -102,12 +103,11 @@ class Cell extends StatefulWidget {
   final Item item;
 
 
-
   Cell({Key key, this.item}) : super(key: key);
 
   @override
   _CellState createState() {
-    return  _CellState();
+    return _CellState();
   }
 
 }
@@ -119,18 +119,18 @@ class _CellState extends State<Cell> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    rotationController = AnimationController(duration: const Duration(milliseconds: 5000), vsync: this);
+    rotationController = AnimationController(
+        duration: const Duration(milliseconds: 5000), vsync: this);
     SchedulerBinding.instance.addPostFrameCallback((_) {
       startAnimation();
     });
-
   }
 
-  startAnimation(){
+  startAnimation() {
     rotationController.repeat(
-      min:0.0,
-      max:1.0,
-      period: const Duration(milliseconds: 5000)
+        min: 0.0,
+        max: 1.0,
+        period: const Duration(milliseconds: 5000)
     );
   }
 
@@ -143,7 +143,7 @@ class _CellState extends State<Cell> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,color: widget.item.color,
+      height: 70, color: widget.item.color,
       child: Row(
         children: <Widget>[
           Image.asset(
@@ -155,7 +155,7 @@ class _CellState extends State<Cell> with TickerProviderStateMixin {
             fit: BoxFit.fill,
           ),
           RotationTransition(
-            turns:  Tween(begin: 0.0, end: 1.0).animate(rotationController),
+            turns: Tween(begin: 0.0, end: 1.0).animate(rotationController),
             child: Image.asset(
               getImage(widget.item.index),
               height: 70.0,
@@ -177,8 +177,8 @@ class _CellState extends State<Cell> with TickerProviderStateMixin {
   }
 
 
-  static getImage(index){
-    var  url  = 'assets/images/${index % 20}.jpeg';
+  static getImage(index) {
+    var url = 'assets/images/${index % 20}.jpeg';
     return url;
   }
 
