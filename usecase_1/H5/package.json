@@ -1,0 +1,46 @@
+{
+  "name": "untitled",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "E2E_DEVICE=\"*\" jest --testMatch=\"**/__tests__/**/!(*e2e.js)\"",
+    "start:appium": "appium",
+    "test:e2e": "jest --testMatch=\"**/__tests__/**/*e2e.js\"",
+    "test:e2e:android": "E2E_DEVICE=\"android-emulator\" npm run test:e2e",
+    "test:e2e:ios": "E2E_DEVICE=\"ios-emulator\"  npm run test:e2e",
+    "build": "rm -rf dist/ && webpack --mode=development --config webpack.config.js",
+    "web": "webpack serve --mode=development --config webpack.config.js"
+  },
+  "dependencies": {
+    "@preflower/react-native-web-fast-image": "^0.1.0",
+    "appium": "^1.17.0",
+    "appium-doctor": "^1.15.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-react-native-web": "^0.17.7",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-native": "^0.68.1",
+    "react-native-web": "^0.17.7",
+    "url-loader": "^4.1.1",
+    "wd": "^1.12.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
+    "@react-native-community/eslint-config": "^3.0.1",
+    "babel-jest": "^28.0.3",
+    "eslint": "^8.14.0",
+    "jest": "^28.0.3",
+    "metro-react-native-babel-preset": "^0.70.2",
+    "react-test-renderer": "18.1.0",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
