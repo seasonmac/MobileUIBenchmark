@@ -9,8 +9,8 @@
     "test:e2e": "jest --testMatch=\"**/__tests__/**/*e2e.js\"",
     "test:e2e:android": "E2E_DEVICE=\"android-emulator\" npm run test:e2e",
     "test:e2e:ios": "E2E_DEVICE=\"ios-emulator\"  npm run test:e2e",
-    "build": "rm -rf dist/ && webpack --mode=development --config webpack.config.js",
-    "web": "webpack serve --mode=development --config webpack.config.js"
+    "build": "rm -rf dist/ && webpack --mode=production --config webpack.config.js",
+    "web": "webpack serve --mode=production --config webpack.config.js"
   },
   "dependencies": {
     "@preflower/react-native-web-fast-image": "^0.1.0",
@@ -24,6 +24,7 @@
     "react-dom": "^17.0.0",
     "react-native": "^0.68.1",
     "react-native-web": "^0.17.7",
+    "react-native-web-image-loader": "^0.1.1",
     "url-loader": "^4.1.1",
     "wd": "^1.12.1"
   },

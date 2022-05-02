@@ -21,7 +21,7 @@ import FastImage from 'react-native-fast-image';
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
 
 let data = Array(1001);
-for (var i = 0; i < data.length; i++) {
+for (let i = 0; i < data.length; i++) {
   let color =
     'rgb(' +
     Math.floor(Math.random() * 256) +
@@ -187,7 +187,7 @@ class CustomRow extends Component {
         toValue: 360,
         duration: 5000,
         easing: Easing.linear,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
     ).start();
   }

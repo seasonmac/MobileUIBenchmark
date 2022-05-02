@@ -39,19 +39,6 @@ const svgLoaderConfiguration = {
   ],
 };
 
-const imgLoaderConfiguration = {
-  test: /\.(png|jpe?g|gif)$/,
-  use: [
-    {
-      loader: 'url-loader',
-      options: {
-        limit:8192
-      }
-
-    },
-  ],
-};
-
 const imageLoaderConfiguration = {
   test: /\.(gif|jpe?g|png)$/,
   use: {
@@ -60,6 +47,16 @@ const imageLoaderConfiguration = {
       name: '[name].[ext]',
     },
   },
+};
+const imgLoaderConfiguration = {
+  test: /\.(png|jpe?g|gif)$/,
+  options: {
+    name: '[name].[hash:8].[ext]',
+    outputPath: 'images',
+    scalings: { '@2x': 2, '@3x': 3 },
+    esModule: false,
+  },
+  loader: 'react-native-web-image-loader',
 };
 
 module.exports = {
@@ -82,9 +79,8 @@ module.exports = {
   module: {
     rules: [
       babelLoaderConfiguration,
-      imageLoaderConfiguration,
-      svgLoaderConfiguration,
       imgLoaderConfiguration,
+      svgLoaderConfiguration,
     ],
   },
   plugins: [
